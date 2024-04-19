@@ -25,5 +25,6 @@ namespace BearcatWeather.Models
     public class Period
     {
         public int? temperature { get; set; } = null;
+        public string? detailedForecast { get; set; } = null;
     }
 }

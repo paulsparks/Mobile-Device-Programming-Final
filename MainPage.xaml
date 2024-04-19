@@ -12,6 +12,10 @@
                     TargetNullValue='Loading...',
                     StringFormat='Temperature: {0}°F'}"
                 SemanticProperties.HeadingLevel="Level1" />
+            <Label
+                Text="{Binding Forecast.properties.periods[0].detailedForecast,
+                    TargetNullValue='Loading...'}"
+                SemanticProperties.HeadingLevel="Level1" />
         </VerticalStackLayout>
     </ScrollView>
 
