@@ -48,6 +48,12 @@
             </Frame>
 
             <Label Text="Weather data provided by US National Weather Service" FontSize="12" FontFamily="Segoe UI" TextColor="Gray" HorizontalOptions="CenterAndExpand" />
+  
+            <!-- Additional Features -->
+            <Button Text="Share" BackgroundColor="#0078D4" TextColor="White" Clicked="ShareButton_Clicked" />
+            <Button Text="Save" BackgroundColor="#0078D4" TextColor="White" Clicked="SaveButton_Clicked" />
+      
+
         </StackLayout>
     </ScrollView>
 
