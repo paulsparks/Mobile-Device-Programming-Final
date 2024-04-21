@@ -1,22 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BearcatWeather.MainPage">
+             x:Class="BearcatWeather.MainPage"
+             BackgroundColor="#000000">
 
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Label
-                Text="{Binding Forecast.properties.periods[0].temperature,
-                    TargetNullValue='Loading...',
-                    StringFormat='Temperature: {0}°F'}"
-                SemanticProperties.HeadingLevel="Level1" />
-            <Label
-                Text="{Binding Forecast.properties.periods[0].detailedForecast,
-                    TargetNullValue='Loading...'}"
-                SemanticProperties.HeadingLevel="Level1" />
-        </VerticalStackLayout>
+        <StackLayout Padding="30,0" Spacing="25">
+            <Label Text="Bearcat Weather" FontSize="32" FontFamily="Segoe UI" TextColor="#FF0000" HorizontalOptions="CenterAndExpand" />
+
+            <Frame BackgroundColor="#FF0000" CornerRadius="10" Padding="10">
+                <Label Text="{Binding Forecast.properties.periods[0].temperature,
+                                      TargetNullValue='Loading...',
+                                      StringFormat='Temperature: {0}°F'}"
+                       FontSize="36" FontFamily="Segoe UI" TextColor="White" HorizontalOptions="CenterAndExpand" />
+            </Frame>
+
+            <Label Text="{Binding Forecast.properties.periods[0].detailedForecast,
+                                  TargetNullValue='Loading...'}"
+                   FontSize="22" FontFamily="Segoe UI" TextColor="White" />
+
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="10">
+                <Image Source="uc_logo.png" Aspect="AspectFit" HeightRequest="100" HorizontalOptions="CenterAndExpand" />
+            </Frame>
+
+            <Label Text="Weather data provided by US National Weather Service" FontSize="12" FontFamily="Segoe UI" TextColor="Gray" HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
     </ScrollView>
 
 </ContentPage>
