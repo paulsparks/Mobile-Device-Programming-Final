@@ -20,15 +20,23 @@ namespace BearcatWeather.Views
             {
                 var temperature = ViewModel.Forecast.properties.periods[0].temperature;
                 var detailedForecast = ViewModel.Forecast.properties.periods[0].detailedForecast;
-                
-                // Display weather information
-                await DisplayAlert("Weather Information", $"Temperature: {temperature}°F\nForecast: {detailedForecast}", "OK");
+        
+                // Construct the message to share
+                var message = $"Temperature: {temperature}°F\nForecast: {detailedForecast}";
+        
+                // Share the message using the built-in share functionality
+                await Share.RequestAsync(new ShareTextRequest
+                {
+                    Title = "Weather Information",
+                    Text = message
+                });
             }
             else
             {
                 await DisplayAlert("Weather Information", "Weather data is not available.", "OK");
             }
         }
+
 
         private async void SaveButton_Clicked(object sender, EventArgs e)
         {
