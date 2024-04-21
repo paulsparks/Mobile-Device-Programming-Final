@@ -16,8 +16,18 @@ namespace BearcatWeather.Views
         
         private async void ShareButton_Clicked(object sender, EventArgs e)
         {
-            // Implement share functionality here
-            await DisplayAlert("Share", "Weather information shared!", "OK");
+            if (ViewModel.Forecast != null)
+            {
+                var temperature = ViewModel.Forecast.properties.periods[0].temperature;
+                var detailedForecast = ViewModel.Forecast.properties.periods[0].detailedForecast;
+                
+                // Display weather information
+                await DisplayAlert("Weather Information", $"Temperature: {temperature}°F\nForecast: {detailedForecast}", "OK");
+            }
+            else
+            {
+                await DisplayAlert("Weather Information", "Weather data is not available.", "OK");
+            }
         }
 
         private async void SaveButton_Clicked(object sender, EventArgs e)
