@@ -3,28 +3,4 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BearcatWeather.MainPage"
              BackgroundColor="#000000">
-
-    <ScrollView>
-        <StackLayout Padding="30,0" Spacing="25">
-            <Label Text="Bearcat Weather" FontSize="40" FontFamily="OpenSans-Semibold.ttf#Open Sans" TextColor="#e00122" HorizontalOptions="CenterAndExpand" />
-
-            <Frame BackgroundColor="#FF0000" CornerRadius="10" Padding="10">
-                <Label Text="{Binding Forecast.properties.periods[0].temperature,
-                                      TargetNullValue='Loading...',
-                                      StringFormat='Temperature: {0}°F'}"
-                       FontSize="32" FontFamily="OpenSans-Semibold.ttf#Open Sans" TextColor="White" HorizontalOptions="CenterAndExpand" />
-            </Frame>
-
-            <Label Text="{Binding Forecast.properties.periods[0].detailedForecast,
-                                  TargetNullValue='Loading...'}"
-                   FontSize="20" FontFamily="OpenSans-Semibold.ttf#Open Sans" TextColor="White" />
-
-            <Frame BackgroundColor="White" CornerRadius="10" Padding="10">
-                <Image Source="uc_logo.png" Aspect="AspectFit" HeightRequest="100" HorizontalOptions="CenterAndExpand" />
-            </Frame>
-
-            <Label Text="Weather data provided by US National Weather Service" FontSize="12" FontFamily="Segoe UI" TextColor="Gray" HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ScrollView>
-
 </ContentPage>
