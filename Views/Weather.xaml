@@ -9,12 +9,36 @@
             <Label Text="Bearcat Weather" FontSize="40" FontFamily="OpenSans-Semibold.ttf#Open Sans" TextColor="#e00122" HorizontalOptions="CenterAndExpand" />
 
             <Frame BackgroundColor="#FF0000" CornerRadius="10" Padding="10">
-                <Label Text="{Binding Forecast.properties.periods[0].temperature,
-                                      TargetNullValue='Loading...',
-                                      StringFormat='Temperature: {0}°F'}"
-                       FontSize="32" FontFamily="OpenSans-Semibold.ttf#Open Sans" TextColor="White" HorizontalOptions="CenterAndExpand" />
-            </Frame>
+                <Grid HorizontalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
 
+                 <!-- Fahrenheit -->
+                <Label Grid.Column="0"
+                    Text="{Binding Forecast.properties.periods[0].temperature, TargetNullValue='Loading...', StringFormat='{0}°F'}"
+                    FontSize="32"
+                    FontFamily="OpenSans-Semibold.ttf#Open Sans"
+                    TextColor="White"
+                    HorizontalOptions="CenterAndExpand" />
+                <!-- Separator -->
+                <Label Grid.Column="1"
+                    Text="|"
+                    FontSize="32"
+                    FontFamily="OpenSans-Semibold.ttf#Open Sans"
+                    TextColor="White"
+                    HorizontalOptions="Center" />
+                <!-- Celsius -->
+                <Label Grid.Column="2"
+                    Text="{Binding Forecast.properties.periods[0].tempC, TargetNullValue='Loading...', StringFormat='{0}°C'}"
+                    FontSize="32"
+                    FontFamily="OpenSans-Semibold.ttf#Open Sans"
+                    TextColor="White"
+                    HorizontalOptions="CenterAndExpand" />   
+                </Grid>
+            </Frame>
             <Label Text="{Binding Forecast.properties.periods[0].detailedForecast,
                                   TargetNullValue='Loading...'}"
                    FontSize="20" FontFamily="OpenSans-Semibold.ttf#Open Sans" TextColor="White" />

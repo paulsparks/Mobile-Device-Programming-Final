@@ -26,5 +26,6 @@ namespace BearcatWeather.Models
     {
         public int? temperature { get; set; } = null;
         public string? detailedForecast { get; set; } = null;
+        public int? tempC {  get; set; } = null;
     }
 }

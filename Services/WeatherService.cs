@@ -30,8 +30,21 @@ namespace BearcatWeather.Services
                         {
                             var weatherResult = await JsonSerializer.DeserializeAsync<Forecast>(content);
                             Debug.WriteLine("WEATHER DATA:\n" + await response.Content.ReadAsStringAsync());
+
+                            //Celcius Conversion
+                            if (weatherResult?.properties?.periods != null)
+                            {
+                                foreach (var period in weatherResult.properties.periods)
+                                {
+                                    if (period.temperature != null)
+                                    {
+                                        period.tempC = FahrenheitToCelsius(period.temperature.Value);
+                                    }
+                                }
+                            }
                             return weatherResult;
-                        } catch (Exception ex)
+                        } 
+                        catch (Exception ex)
                         {
                             Debug.WriteLine(ex);
                             return null;
@@ -39,7 +52,7 @@ namespace BearcatWeather.Services
                     }
                     else
                     {
-                        return JsonSerializer.Deserialize<Forecast>("{" +  $"'Error': '{response.StatusCode} - {response.ReasonPhrase}'" + "}");
+                        return JsonSerializer.Deserialize<Forecast>("{" +  $"'Error': '{response.StatusCode}");
                     }
                 }
             }
@@ -47,6 +60,11 @@ namespace BearcatWeather.Services
             {
                 return JsonSerializer.Deserialize<Forecast>("{" + $"'Exception': '{ex.Message}'" + "}");
             }
+        }
+
+        private static int FahrenheitToCelsius(int fahrenheit)
+        {
+            return (int)((fahrenheit - 32) * 5 / 9);
         }
     }
 }
