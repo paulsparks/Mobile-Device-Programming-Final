@@ -6,18 +6,18 @@
 
     <ScrollView>
         <StackLayout Padding="30,0" Spacing="25">
-            <Label Text="Bearcat Weather" FontSize="32" FontFamily="Segoe UI" TextColor="#FF0000" HorizontalOptions="CenterAndExpand" />
+            <Label Text="Bearcat Weather" FontSize="40" FontFamily="OpenSans-Semibold.ttf#Open Sans" TextColor="#e00122" HorizontalOptions="CenterAndExpand" />
 
             <Frame BackgroundColor="#FF0000" CornerRadius="10" Padding="10">
                 <Label Text="{Binding Forecast.properties.periods[0].temperature,
                                       TargetNullValue='Loading...',
                                       StringFormat='Temperature: {0}°F'}"
-                       FontSize="36" FontFamily="Segoe UI" TextColor="White" HorizontalOptions="CenterAndExpand" />
+                       FontSize="32" FontFamily="OpenSans-Semibold.ttf#Open Sans" TextColor="White" HorizontalOptions="CenterAndExpand" />
             </Frame>
 
             <Label Text="{Binding Forecast.properties.periods[0].detailedForecast,
                                   TargetNullValue='Loading...'}"
-                   FontSize="22" FontFamily="Segoe UI" TextColor="White" />
+                   FontSize="20" FontFamily="OpenSans-Semibold.ttf#Open Sans" TextColor="White" />
 
             <Frame BackgroundColor="White" CornerRadius="10" Padding="10">
                 <Image Source="uc_logo.png" Aspect="AspectFit" HeightRequest="100" HorizontalOptions="CenterAndExpand" />
