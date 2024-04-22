@@ -15,7 +15,7 @@ namespace BearcatWeather.Services
         {
             try
             {
-                string apiUrl = "https://api.weather.gov/gridpoints/ILN/36,38/forecast";
+                string apiUrl = "https://api.weather.gov/gridpoints/ILN/36,38/forecast/hourly";
                 string userAgent = "(sparkspaul.com, psparks1225@gmail.com)";
 
                 using (HttpClient client = new HttpClient())
