@@ -40,8 +40,23 @@ namespace BearcatWeather.Views
 
         private async void SaveButton_Clicked(object sender, EventArgs e)
         {
-            // Implement save functionality here
-            await DisplayAlert("Save", "Weather information saved!", "OK");
+            if (ViewModel.Forecast != null)
+            {
+                var temperature = ViewModel.Forecast.properties.periods[0].temperature;
+                var detailedForecast = ViewModel.Forecast.properties.periods[0].detailedForecast;
+        
+                // Construct the message to save
+                var message = $"Temperature: {temperature}°F\nForecast: {detailedForecast}";
+        
+                // Save the message to the clipboard
+                await Clipboard.SetTextAsync(message);
+        
+                await DisplayAlert("Save", "Weather information saved to clipboard!", "OK");
+            }
+            else
+            {
+                await DisplayAlert("Save", "Weather data is not available.", "OK");
+            }
         }
     }
 }
